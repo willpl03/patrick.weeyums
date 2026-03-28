@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ SITENAME }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="theme/css/style.css" />
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">{{ PROFILE.name.split()[0] }}<span class="accent">.</span></a>
+      <ul class="nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact" class="nav__cta">Contact</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ── SECTION 1: HERO ── -->
+    <section class="section hero" id="hero">
+      <div class="hero__bg-grid" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--blue" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--purple" aria-hidden="true"></div>
+      <div class="container hero__content">
+        <p class="hero__eyebrow">👋 Hello, I'm</p>
+        <h1 class="hero__name">{{ PROFILE.name }}</h1>
+        <h2 class="hero__title">{{ PROFILE.title }}</h2>
+        <p class="hero__tagline">{{ PROFILE.tagline }}</p>
+        <div class="hero__actions">
+          <a href="#portfolio" class="btn btn--primary">View My Portfolio</a>
+          <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+        </div>
+        <div class="hero__social">
+          <a href="{{ PROFILE.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="mailto:{{ PROFILE.email }}" aria-label="Email">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: ABOUT ── -->
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">01 &mdash; About</p>
+          <h2 class="section-title">Who I Am</h2>
+        </div>
+        <div class="about__grid">
+
+          <!-- HEADSHOT — replace placeholder with your image when ready -->
+          <div class="about__photo-col">
+            <div class="about__photo-wrap">
+              {% if PROFILE.headshot %}
+              <img src="theme/images/{{ PROFILE.headshot }}" alt="Patrick Williams" class="about__photo" />
+              {% else %}
+              <div class="about__photo-placeholder">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>Your photo here</span>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- BIO + STATS -->
+          <div class="about__content">
+            <div class="about__text">
+              {% for p in ABOUT.paragraphs %}
+              <p>{{ p }}</p>
+              {% endfor %}
+            </div>
+            <div class="about__stats">
+              {% for stat in ABOUT.stats %}
+              <div class="stat-card">
+                <span class="stat-card__number">{{ stat.number }}</span>
+                <span class="stat-card__label">{{ stat.label }}</span>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: EXPERIENCE ── -->
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">02 &mdash; Experience</p>
+          <h2 class="section-title">Work History</h2>
+        </div>
+        <div class="timeline">
+          {% for job in EXPERIENCE %}
+          <div class="timeline__item">
+            <div class="timeline__marker">
+              <div class="timeline__dot"></div>
+              {% if not loop.last %}<div class="timeline__line"></div>{% endif %}
+            </div>
+            <div class="timeline__card card">
+              <div class="timeline__card-header">
+                <div>
+                  <h3 class="timeline__role">{{ job.role }}</h3>
+                  <p class="timeline__company">{{ job.company }}</p>
+                </div>
+                <span class="timeline__dates">{{ job.dates }}</span>
+              </div>
+              <ul class="timeline__bullets">
+                {% for bullet in job.bullets %}
+                <li>{{ bullet }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 4: SKILLS ── -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">03 &mdash; Skills</p>
+          <h2 class="section-title">Professional Abilities</h2>
+        </div>
+        <div class="skills__grid">
+          {% for skill in SKILLS %}
+          <div class="skill-card card">
+            <div class="skill-card__icon">{{ skill.icon }}</div>
+            <h3 class="skill-card__category">{{ skill.category }}</h3>
+            <ul class="skill-card__items">
+              {% for item in skill.tools %}
+              <li><span class="pill">{{ item }}</span></li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 5: POWER BI PORTFOLIO ── -->
+    <section class="section portfolio" id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">04 &mdash; Portfolio</p>
+          <h2 class="section-title">Power BI Work</h2>
+          <p class="section-subtitle">A selection of dashboards and reports built to support real business decisions.</p>
+        </div>
+
+        <div class="portfolio__grid">
+          {% for project in POWERBI_PROJECTS %}
+          <div class="portfolio-card card">
+            <div class="portfolio-card__preview">
+              <div class="portfolio-card__preview-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="portfolio-card__icon"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/><path d="M7 15h2M7 18h2M13 12h4M13 15h4M13 18h2"/></svg>
+                <span>Power BI Report</span>
+              </div>
+            </div>
+            <div class="portfolio-card__body">
+              <h3 class="portfolio-card__title">{{ project.title }}</h3>
+              <p class="portfolio-card__desc">{{ project.description }}</p>
+              <div class="portfolio-card__tags">
+                {% for tag in project.tags %}
+                <span class="pill pill--accent">{{ tag }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="portfolio__cta">
+          <a href="{{ PROFILE.powerbi_url }}" target="_blank" rel="noopener" class="btn btn--primary btn--large">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View Full Portfolio in Power BI
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 5: CONTACT ── -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">05 &mdash; Contact</p>
+          <h2 class="section-title">Let's Connect</h2>
+          <p class="section-subtitle">Have a project in mind or want to discuss an opportunity? I'd love to hear from you.</p>
+        </div>
+        <div class="contact__links">
+          <a href="mailto:{{ PROFILE.email }}" class="contact-link card">
+            <div class="contact-link__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="contact-link__label">Email</p>
+              <p class="contact-link__value">{{ PROFILE.email }}</p>
+            </div>
+          </a>
+          <a href="{{ PROFILE.linkedin }}" target="_blank" rel="noopener" class="contact-link card">
+            <div class="contact-link__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <p class="contact-link__label">LinkedIn</p>
+              <p class="contact-link__value">Connect with me</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>Built with <a href="https://getpelican.com" target="_blank" rel="noopener">Pelican</a> &amp; custom CSS &mdash; {{ PROFILE.name }}</p>
+      <p class="footer__year">© 2026</p>
+    </div>
+  </footer>
+
+  <script src="theme/js/main.js"></script>
+</body>
+</html>

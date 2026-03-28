@@ -1,0 +1,12 @@
+# Pelican build output — deployed separately via ghp-import
+output/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+.cache/
+
+# OS files
+.DS_Store
+Thumbs.db
