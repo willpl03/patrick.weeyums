@@ -1,6 +1,6 @@
 AUTHOR = 'Patrick Williams'
 SITENAME = 'Patrick Williams | Analytics & BI Leader'
-SITEURL = 'https://www.weeyums.com'
+SITEURL = 'https://www.weeeyums.com'
 
 PATH = 'content'
 

@@ -13,5 +13,5 @@ echo "🚀 Deploying to GitHub Pages..."
 python3 -m ghp_import -n -p -f output
 
 echo "✅ Done! Site will be live at:"
-echo "   https://www.weeyums.com"
+echo "   https://www.weeeyums.com"
 echo "   (allow 1-2 minutes for GitHub to update)"
