@@ -7,11 +7,11 @@
 set -e  # Stop on any error
 
 echo "🔨 Building site..."
-pelican content -s pelicanconf.py -o output
+python3 -m pelican content -s pelicanconf.py -o output
 
 echo "🚀 Deploying to GitHub Pages..."
-ghp-import -n -p -f output
+python3 -m ghp_import -n -p -f output
 
 echo "✅ Done! Site will be live at:"
-echo "   https://willpl03.github.io/patrick.weeyums"
+echo "   https://www.weeyums.com"
 echo "   (allow 1-2 minutes for GitHub to update)"

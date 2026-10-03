@@ -1,8 +1,12 @@
 AUTHOR = 'Patrick Williams'
 SITENAME = 'Patrick Williams | Analytics & BI Leader'
-SITEURL = 'https://willpl03.github.io/patrick.weeyums'
+SITEURL = 'https://www.weeyums.com'
 
 PATH = 'content'
+
+# Custom domain: copy CNAME to the site root so GitHub Pages keeps it on every deploy
+STATIC_PATHS = ['images', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}}
 TIMEZONE = 'America/New_York'
 DEFAULT_LANG = 'en'
 
