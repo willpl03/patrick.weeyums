@@ -34,8 +34,8 @@ PROFILE = {
     'tagline': 'Turning complex data into clear, compelling decisions that drive commercial growth.',
     'email': 'patrick.weeyums@gmail.com',
     'linkedin': 'https://www.linkedin.com/in/patrick-weeyums',
-    'powerbi_url': '#portfolio',  # Replace with your live Power BI report URL
-    'headshot': '',              # Set to filename e.g. 'headshot.jpg' once you have an image
+    'powerbi_url': '',            # Set to a live Power BI report URL to show the portfolio button
+    'headshot': 'headshot.jpg',  # file in themes/dark-portfolio/static/images/
                                  # and place the file in themes/dark-portfolio/static/images/
 }
 
@@ -48,7 +48,7 @@ ABOUT = {
     ],
     'stats': [
         {'number': '15+', 'label': 'Years Experience'},
-        {'number': '15+', 'label': 'Power BI Dashboards Built'},
+        {'number': '100+', 'label': 'Power BI Reports Built'},
         {'number': '4', 'label': 'Industries Served'},
         {'number': '$375M+', 'label': 'Revenue Under Analytics'},
     ],
