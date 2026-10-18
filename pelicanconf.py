@@ -103,22 +103,18 @@ EXPERIENCE = [
 SKILLS = [
     {
         'category': 'Data Visualization',
-        'icon': '📊',
         'tools': ['Microsoft Power BI', 'Tableau', 'DAX & Power Query (M)', 'Python (Pandas)'],
     },
     {
         'category': 'Data & Languages',
-        'icon': '💻',
         'tools': ['SQL', 'Python', 'DAX', 'R (Statistical Analysis)', 'Salesforce CRM'],
     },
     {
         'category': 'Analytics & Strategy',
-        'icon': '🧠',
         'tools': ['Revenue Forecasting', 'Marketing Mix Modeling', 'Market Research', 'Sales Incentive Compensation', 'Predictive & Regression Modeling'],
     },
     {
         'category': 'Leadership & Process',
-        'icon': '🎯',
         'tools': ['Analytics Team Leadership', 'Process Automation', 'Executive Storytelling', 'Vendor Management', 'Coaching & Mentoring'],
     },
 ]

@@ -152,7 +152,7 @@
         <div class="skills__grid">
           {% for skill in SKILLS %}
           <div class="skill-card card">
-            <div class="skill-card__icon">{{ skill.icon }}</div>
+            {% if skill.icon %}<div class="skill-card__icon">{{ skill.icon }}</div>{% endif %}
             <h3 class="skill-card__category">{{ skill.category }}</h3>
             <ul class="skill-card__items">
               {% for item in skill.tools %}
