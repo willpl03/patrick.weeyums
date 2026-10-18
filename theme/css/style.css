@@ -662,7 +662,7 @@ img { display: block; max-width: 100%; }
 .timeline__dates {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: var(--text-muted);
+  color: var(--accent-blue);
   white-space: nowrap;
   padding: 4px 10px;
   background: var(--bg-pill);
