@@ -122,18 +122,9 @@ SKILLS = [
 # ── POWER BI PORTFOLIO ────────────────────────────────────────────────────────
 POWERBI_PROJECTS = [
     {
-        'title': 'Field Sales Reporting Suite',
-        'description': 'Designed 15 Power BI reports from scratch for Solta Medical field reps — covering territory performance, cold account identification, promo utilization, and forecasting. Ranked 5th most-utilized package on the Bausch Health server out of thousands.',
-        'tags': ['Power BI', 'SQL', 'Salesforce', 'Sales Analytics'],
-    },
-    {
-        'title': 'Executive Performance Dashboard',
-        'description': 'Built 15+ interactive Power BI dashboards for senior leadership tracking weekly sales performance, customer churn, reorder rates, and key activity metrics across a $75M North American business unit.',
-        'tags': ['Power BI', 'DAX', 'Executive Reporting', 'KPI Tracking'],
-    },
-    {
-        'title': 'Subscription Sales Model Analysis',
-        'description': 'Analyzed feasibility and designed a new subscription pricing model for consumables. In year one, 105 accounts enrolled — 25% of total sales — growing 2.5× faster than standard accounts.',
-        'tags': ['Financial Modeling', 'Power BI', 'Growth Strategy'],
+        'title': 'Bitcoin Buy Signals Dashboard',
+        'description': 'Personal project in progress: a Power BI dashboard that combines Bitcoin valuation signals — Meyer Multiple, RSI, drawdown from peak, 200-week trend and the Fear & Greed Index — into a single composite score. Click the image to see the full dashboard.',
+        'tags': ['Power BI', 'DAX', 'Time Intelligence', 'Personal Project'],
+        'image': 'btc-buy-signals.webp',
     },
 ]
